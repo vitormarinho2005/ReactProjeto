@@ -1,0 +1,31 @@
+body {
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: flex-start; /* Alinha os itens ao início verticalmente (topo) */
+  min-height: 100vh; /* Garante que o body ocupe a altura total da tela */
+  margin: 0; /* Remove margens padrão do body */
+  background-color: #f0f0f0; /* Cor de fundo para diferenciar, se necessário */
+}
+
+.app-container {
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f0f0;
+  /* min-height: 100vh; Remova isso daqui, pois o body já está cuidando da altura */
+  width: 100%; /* Opcional: Permite que o container expanda na largura */
+  max-width: 600px; /* Opcional: Define uma largura máxima para evitar que o conteúdo fique muito largo em telas grandes */
+  box-sizing: border-box; /* Garante que o padding não afete a largura total */
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 24px;
+}
+
+.feiras-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}

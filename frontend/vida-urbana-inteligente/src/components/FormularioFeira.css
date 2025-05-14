@@ -1,0 +1,27 @@
+.formulario-feira {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 400px;
+    margin: 0 auto 24px auto;
+}
+
+.formulario-feira input {
+    padding: 8px;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+}
+
+.formulario-feira button {
+    background-color: #43a047;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.formulario-feira button:hover {
+    background-color: #2e7d32;
+}
