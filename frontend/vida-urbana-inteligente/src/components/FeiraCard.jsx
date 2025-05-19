@@ -3,12 +3,13 @@ import './FeiraCard.css';
 
 const FeiraCard = ({ feira, onFavoritar, onDelete, onEdit, onRemoverFavorito }) => {
   const isFavorita = feira.favorita;
+  const produtos = Array.isArray(feira.produtos) ? feira.produtos.join(', ') : 'Nenhum produto';
 
   return (
     <div className="feira-card">
       <h3>{feira.nome}</h3>
-      <p><strong>Produtos:</strong> {feira.produtos.join(', ')}</p>
-      <p><strong>Horário:</strong> {feira.horario}</p>
+      <p><strong>Produtos:</strong> {produtos}</p>
+      <p><strong>Horário:</strong> {feira.horario || 'Horário não informado'}</p>
 
       {/* Indicador visual de favorito */}
       {isFavorita && <span className="favorito-badge">★ Favorita</span>}
