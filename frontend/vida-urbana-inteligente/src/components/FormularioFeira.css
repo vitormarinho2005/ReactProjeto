@@ -1,27 +1,40 @@
 .formulario-feira {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    max-width: 400px;
-    margin: 0 auto 24px auto;
+    gap: 12px;
+    background-color: #f7f9fa;
+    padding: 20px;
+    border-radius: 12px;
+    max-width: 500px;
+    margin: 0 auto 30px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
 }
 
 .formulario-feira input {
-    padding: 8px;
-    border: 1px solid #aaa;
-    border-radius: 4px;
+    padding: 10px 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+.formulario-feira input:focus {
+    border-color: #007bff;
+    outline: none;
 }
 
 .formulario-feira button {
-    background-color: #43a047;
+    background-color: #28a745;
     color: white;
     border: none;
-    padding: 10px;
-    border-radius: 6px;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 1rem;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s;
 }
 
 .formulario-feira button:hover {
-    background-color: #2e7d32;
+    background-color: #218838;
 }
