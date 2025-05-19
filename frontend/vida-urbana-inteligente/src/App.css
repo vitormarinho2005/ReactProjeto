@@ -1,31 +1,112 @@
+/* Reset básico para garantir consistência entre navegadores */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   display: flex;
   justify-content: center; /* Centraliza horizontalmente */
-  align-items: flex-start; /* Alinha os itens ao início verticalmente (topo) */
-  min-height: 100vh; /* Garante que o body ocupe a altura total da tela */
-  margin: 0; /* Remove margens padrão do body */
-  background-color: #f0f0f0; /* Cor de fundo para diferenciar, se necessário */
+  align-items: flex-start; /* Alinha itens ao topo */
+  min-height: 100vh; /* Ocupa altura total da tela */
+  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  padding: 20px;
 }
 
 .app-container {
-  padding: 20px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f0f0f0;
-  /* min-height: 100vh; Remova isso daqui, pois o body já está cuidando da altura */
-  width: 100%; /* Opcional: Permite que o container expanda na largura */
-  max-width: 600px; /* Opcional: Define uma largura máxima para evitar que o conteúdo fique muito largo em telas grandes */
-  box-sizing: border-box; /* Garante que o padding não afete a largura total */
+  background-color: #ffffff;
+  padding: 32px 28px;
+  width: 100%;
+  max-width: 640px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transition: box-shadow 0.3s ease;
+}
+
+.app-container:hover {
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.16);
+}
+
+/* Remove os bullets da lista de navegação */
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 16px;
+  padding: 0;
+  margin: 0;
+  justify-content: center;
+}
+
+/* Estiliza os links como botões */
+.nav-list li a {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #2c3e50;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Efeito hover para os links */
+.nav-list li a:hover,
+.nav-list li a:focus {
+  background-color: #34495e;
+  color: #f0f0f0;
+  outline: none;
 }
 
 h1 {
   text-align: center;
-  color: #333;
-  margin-bottom: 24px;
+  color: #2c3e50;
+  margin-bottom: 32px;
+  font-weight: 700;
+  font-size: 2.25rem;
+  letter-spacing: 0.5px;
 }
 
 .feiras-container {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
   align-items: center;
+}
+
+footer {
+  background-color: #2c3e50; /* Fundo escuro para contraste */
+  color: #ecf0f1;           /* Cor clara para o texto */
+  text-align: center;       /* Centraliza o texto */
+  padding: 16px 20px;       /* Espaçamento interno */
+  font-size: 14px;          /* Tamanho de fonte menor */
+  border-top: 3px solid #2980b9; /* Barra superior azul para destaque */
+  margin-top: 40px;         /* Espaço acima do footer */
+  box-shadow: 0 -2px 6px rgba(0,0,0,0.1); /* Sombra sutil no topo */
+  user-select: none;        /* Evita seleção acidental */
+}
+
+/* Se quiser efeito hover (opcional) */
+footer:hover {
+  background-color: #34495e;
+  transition: background-color 0.3s ease;
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+  .app-container {
+    padding: 20px 16px;
+    max-width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+    margin-bottom: 24px;
+  }
 }
