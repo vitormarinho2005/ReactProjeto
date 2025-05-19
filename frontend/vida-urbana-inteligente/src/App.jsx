@@ -29,11 +29,11 @@ const App = () => {
       alert("Esta feira já está nos favoritos!");
       return;
     }
-    await addFavorito(feiraId);
+    await addFavorito(feiraId); // ← Agora funciona corretamente
     alert('Feira favoritada!');
     fetchFeiras();
   };
-
+  
   const handleRemoverFavorito = async (feiraId) => {
     const updatedFeira = { ...feiras.find(f => f.id === feiraId), favorita: false };
     await updateFeira(feiraId, updatedFeira);

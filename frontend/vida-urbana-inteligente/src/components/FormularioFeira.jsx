@@ -1,25 +1,31 @@
 import React, { useState } from 'react';
 import './FormularioFeira.css';
+import { createFeira } from '../services/api'; // ✅ Corrigido
 
-const FormularioFeira = ({ onSubmit, onRemove }) => {
+const FormularioFeira = ({ onSubmit }) => {
   const [nome, setNome] = useState('');
   const [produtos, setProdutos] = useState('');
   const [horario, setHorario] = useState('');
-  const [feiraRemovida, setFeiraRemovida] = useState(null);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const novaFeira = { nome, produtos: produtos.split(','), horario };
-    onSubmit(novaFeira);  // Envia a feira para ser cadastrada
-    setNome('');
-    setProdutos('');
-    setHorario('');
-    setFeiraRemovida(null);  // Reseta a feira removida após cadastro
-  };
 
-  const handleRemove = () => {
-    onRemove(feiraRemovida);  // Chama a função de remoção
-    setFeiraRemovida(null);  // Reseta após remoção
+    const novaFeira = {
+      nome,
+      produtos: produtos.split(',').map(p => p.trim()), // remove espaços
+      horario,
+      favorita: false // garante o campo favorita como false inicialmente
+    };
+
+    try {
+      await createFeira(novaFeira);
+      onSubmit(); // Recarrega a lista
+      setNome('');
+      setProdutos('');
+      setHorario('');
+    } catch (error) {
+      console.error('Erro ao adicionar feira:', error);
+    }
   };
 
   return (
@@ -46,12 +52,6 @@ const FormularioFeira = ({ onSubmit, onRemove }) => {
         required
       />
       <button type="submit">Adicionar Feira</button>
-      
-      {feiraRemovida && (
-        <div className="remove-feira">
-          <button type="button" onClick={handleRemove}>Remover Feira</button>
-        </div>
-      )}
     </form>
   );
 };
