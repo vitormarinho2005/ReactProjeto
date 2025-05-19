@@ -1,63 +1,120 @@
 .feira-card {
-    border: 2px solid #ccc;
-    border-radius: 12px;
-    padding: 16px;
-    margin-bottom: 16px;
-    background-color: #f9f9f9;
-    transition: transform 0.2s ease;
-}
-
-.feira-card:hover {
-    transform: scale(1.02);
-}
-
-.feira-card.favorita {
-    border-color: #e91e63;
-    background-color: #fff0f5;
-    box-shadow: 0 0 15px rgba(233, 30, 99, 0.3);
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0% {
-        box-shadow: 0 0 15px rgba(233, 30, 99, 0.3);
-    }
-
-    50% {
-        box-shadow: 0 0 25px rgba(233, 30, 99, 0.6);
-    }
-
-    100% {
-        box-shadow: 0 0 15px rgba(233, 30, 99, 0.3);
-    }
-}
-
-.feira-buttons {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+    padding: 20px;
     display: flex;
-    gap: 10px;
-    margin-top: 10px;
-}
-
-.feira-buttons button {
-    padding: 8px 12px;
-    border: none;
-    border-radius: 8px;
-    background-color: #007bff;
-    color: white;
+    flex-direction: column;
+    gap: 16px;
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .feira-card:hover {
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  }
+  
+  .feira-nome {
+    font-size: 1.6rem;
+    color: #2c3e50;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  
+  .input-label {
+    font-weight: 600;
+    color: #34495e;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  
+  .input-edicao {
+    padding: 10px 14px;
+    border: 1.5px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+  }
+  
+  .input-edicao:focus {
+    outline: none;
+    border-color: #2980b9;
+    box-shadow: 0 0 6px rgba(41, 128, 185, 0.4);
+  }
+  
+  .botoes {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  
+  .button {
+    flex: 1 1 auto;
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 1rem;
     cursor: pointer;
-    transition: background-color 0.2s ease;
-}
-
-.feira-buttons button:hover {
-    background-color: #0056b3;
-}
-
-.favorito-badge {
-  display: inline-block;
-  background-color: gold;
-  color: black;
-  padding: 2px 6px;
-  margin-bottom: 8px;
-  border-radius: 4px;
-  font-weight: bold;
-}
+    border: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    user-select: none;
+  }
+  
+  .button.editar {
+    background-color: #2980b9;
+    color: white;
+  }
+  
+  .button.editar:hover {
+    background-color: #1c5980;
+  }
+  
+  .button.salvar {
+    background-color: #27ae60;
+    color: white;
+  }
+  
+  .button.salvar:hover {
+    background-color: #1e8449;
+  }
+  
+  .button.cancelar {
+    background-color: #7f8c8d;
+    color: white;
+  }
+  
+  .button.cancelar:hover {
+    background-color: #606b6d;
+  }
+  
+  .button.favorito {
+    background-color: #f39c12;
+    color: white;
+  }
+  
+  .button.favorito.ativo {
+    background-color: #d35400;
+  }
+  
+  .button.favorito:hover {
+    background-color: #e67e22;
+  }
+  
+  .button.excluir {
+    background-color: #e74c3c;
+    color: white;
+  }
+  
+  .button.excluir:hover {
+    background-color: #c0392b;
+  }
+  
+  .mensagem-feedback {
+    color: #2980b9;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 12px;
+    font-size: 1rem;
+  }
+  

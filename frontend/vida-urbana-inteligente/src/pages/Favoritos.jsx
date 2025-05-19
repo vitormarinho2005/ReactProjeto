@@ -1,28 +1,25 @@
 import React, { useEffect, useState } from 'react';
-import './Favoritos.css'; // Importando os estilos
-import { getFeiras, addFavorito, deleteFeira } from '../services/api'; // Funções para interagir com a API
-import FeiraCard from '../components/FeiraCard'; // Card para exibir as feiras
+import './Favoritos.css';
+import { getFeiras } from '../services/api';
+import FeiraCard from '../components/FeiraCard';
 
 const Favoritos = () => {
   const [feiras, setFeiras] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Função para carregar as feiras favoritas
+  // Carrega apenas as feiras favoritas
   const fetchFeirasFavoritas = async () => {
     setLoading(true);
-    const response = await getFeiras();
-    const feirasFavoritas = response.data.filter(feira => feira.favorita); // Filtra feiras favoritas
-    setFeiras(feirasFavoritas);
+    try {
+      const response = await getFeiras();
+      const favoritas = response.data.filter((feira) => feira.favorita);
+      setFeiras(favoritas);
+    } catch (error) {
+      console.error('Erro ao carregar favoritos:', error);
+    }
     setLoading(false);
   };
 
-  // Função para remover uma feira dos favoritos
-  const handleRemoverFavorito = async (id) => {
-    await addFavorito(id); // Reverte o estado da feira para não favorita
-    fetchFeirasFavoritas(); // Recarrega as feiras favoritas
-  };
-
-  // Carrega as feiras favoritas ao montar o componente
   useEffect(() => {
     fetchFeirasFavoritas();
   }, []);
@@ -30,6 +27,7 @@ const Favoritos = () => {
   return (
     <div className="favoritos-container">
       <h1>Feiras Favoritas</h1>
+
       {loading ? (
         <p>Carregando...</p>
       ) : feiras.length === 0 ? (
@@ -37,13 +35,7 @@ const Favoritos = () => {
       ) : (
         feiras.map((feira) => (
           <div key={feira.id} className="favoritos-card">
-            <FeiraCard feira={feira} />
-            <button
-              className="button"
-              onClick={() => handleRemoverFavorito(feira.id)}
-            >
-              Remover dos Favoritos
-            </button>
+            <FeiraCard feira={feira} onAtualizar={fetchFeirasFavoritas} onEditar={() => {}} />
           </div>
         ))
       )}
@@ -52,4 +44,3 @@ const Favoritos = () => {
 };
 
 export default Favoritos;
-

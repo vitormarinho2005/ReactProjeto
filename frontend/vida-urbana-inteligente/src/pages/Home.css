@@ -1,0 +1,128 @@
+/* Container geral do Home */
+.home-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 24px 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+  }
+  
+  /* Título */
+  .home-container h1 {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+    color: #2c3e50;
+    letter-spacing: 1px;
+  }
+  
+  /* Formulário */
+  .form-cadastro {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  /* Labels */
+  .form-cadastro label {
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #34495e;
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+  }
+  
+  /* Inputs */
+  .form-cadastro input[type="text"] {
+    margin-top: 6px;
+    padding: 10px 14px;
+    border: 1.8px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+  }
+  
+  .form-cadastro input[type="text"]:focus {
+    outline: none;
+    border-color: #2980b9;
+    box-shadow: 0 0 6px rgba(41, 128, 185, 0.4);
+  }
+  
+  /* Botão Adicionar */
+  .btn-adicionar {
+    cursor: pointer;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: white;
+    background: linear-gradient(45deg, #2980b9, #3498db);
+    box-shadow: 0 3px 8px rgba(41, 128, 185, 0.4);
+    transition: background 0.3s ease;
+    margin-top: 10px;
+  }
+  
+  .btn-adicionar:hover {
+    background: linear-gradient(45deg, #3498db, #2980b9);
+  }
+  
+  /* Container filtro favoritas */
+  .filtro-favoritas {
+    margin-top: 18px;
+    text-align: center;
+  }
+  
+  .filtro-favoritas label {
+    cursor: pointer;
+    font-weight: 600;
+    user-select: none;
+    font-size: 1rem;
+  }
+  
+  .filtro-favoritas input[type="checkbox"] {
+    margin-right: 8px;
+    transform: scale(1.3);
+    vertical-align: middle;
+  }
+  
+  /* Lista de feiras */
+  .lista-feiras {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  
+  /* Mensagens de carregamento e vazio */
+  .home-container p {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #555;
+    margin-top: 20px;
+    font-style: italic;
+  }
+  
+  /* Responsividade */
+  @media (max-width: 480px) {
+    .home-container {
+      padding: 16px 12px;
+      max-width: 100%;
+    }
+  
+    .btn-adicionar {
+      width: 100%;
+      font-size: 1rem;
+    }
+  
+    .lista-feiras {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+  }
+  
